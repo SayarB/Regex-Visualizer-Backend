@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { PythonShell } = require("python-shell");
+require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
@@ -20,6 +21,6 @@ app.post("/run", (req, res) => {
   );
 });
 
-app.listen(8000, () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log("listening on port 8000");
 });
