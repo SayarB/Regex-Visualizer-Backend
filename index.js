@@ -4,6 +4,9 @@ const cors = require("cors");
 const { PythonShell } = require("python-shell");
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.json({ status: 200, message: "hello" });
+});
 app.post("/run", (req, res) => {
   var { regex, text } = req.body;
   console.log(regex);
